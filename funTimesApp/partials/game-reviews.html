@@ -1,0 +1,66 @@
+<!-- <div class="row">
+        <div class="col-sm-4 col-lg-4 col-md-4">
+            <div class="thumbnail">
+                <img src="http://placehold.it/320x150" alt="">
+                <div class="caption">
+                    <h4 class="pull-right">{{game.price}}</h4>
+                    <h4><a href="#">{{game.name}}</a>
+                    </h4>
+                    <p ng-repeat="body in game.comments.body">{{body}}</p>
+                                        <li ng-repeat="img in phone.images">
+                    <img ng-src="{{img}}" ng-click="setImage(img)">
+                    <div ng-repeat="comment in game.comments">
+                        <p>{{comment.body}}</p>
+                    </div>
+
+                </div>
+            </div>      
+    </div>
+-->
+<div class="col-sm-4 col-lg-4 col-md-8">
+      <div class="page-header">
+        <h3>
+          <a>
+            {{game.name}}
+          </a>
+        </h3>
+      </div>
+
+      <div ng-repeat="comment in game.comments | orderBy:'-upvotes'">
+        <span class="glyphicon glyphicon-thumbs-up"
+          ng-click="incrementUpvotes(comment)"></span>
+        {{comment.upvotes}} - by {{comment.author}}
+        <span style="font-size:20px; margin-left:10px;">
+          {{comment.body}}
+        </span>
+      </div>
+
+      <form ng-submit="addComment()"
+        style="margin-top:30px;">
+        <h3>Add a new comment</h3>
+        <div class="form-group">
+          <input type="text"
+          class="form-control"
+          placeholder="Comment"
+          ng-model="comment.body"></input>
+        </div>
+        <div class="form-group">
+          <input type="text"
+          class="form-control"
+          placeholder="Author"
+          ng-model="comment.author"></input>
+        </div>
+        <button type="submit" class="btn btn-primary">Post</button>
+      </form>
+</div>
+<!--
+    <div class="col-sm-6 col-md-4 col-lg-2">
+           <span>Size and Weight</span>
+           <dl>
+            <dt>Dimensions</dt>
+            <dd ng-repeat="dim in phone.sizeAndWeight.dimensions">{{dim}}</dd>
+            <dt>Weight</dt>
+            <dd>{{phone.sizeAndWeight.weight}}</dd>
+          </dl>
+    </div>
+-->

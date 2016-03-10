@@ -49,6 +49,10 @@ body {
     color: #333;
 }
 
+.glyphicon-thumbs-up { 
+    cursor:pointer 
+}
+
 footer {
     margin: 50px 0;
 }

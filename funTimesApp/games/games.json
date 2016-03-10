@@ -24,7 +24,14 @@
         "snippet": "The latest installment to the Call of Duty franchise....",
         "rating": 4,
         "reviews": 10,
-        "price": 35.87
+        "price": 35.87,
+        "comments": [ 
+                     {
+                         "body": ". . . . my comment . . .",
+                         "author": "jbloggs", 
+                         "upvotes": 2 
+                     }
+                     ]
     },
     {
         "age": 1, 
@@ -34,6 +41,13 @@
         "snippet": "The latest installment to the Call of Duty franchise....",
         "rating": 4,
         "reviews": 10,
-        "price": 35.87
+        "price": 35.87,
+        "comments": [ 
+                     {
+                         "body": ". . . . my comment . . .",
+                         "author": "jbloggs", 
+                         "upvotes": 2 
+                     }
+                     ]
     }
 ]
