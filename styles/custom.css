@@ -13,3 +13,22 @@ body {
 button {
     margin: 5px 5px 5px 5px;
 }
+
+.games {
+      list-style: none;
+}
+
+.thumb {
+  float: left;
+  margin: -0.5em 1em 1.5em 0;
+  padding-bottom: 1em;
+  height: 100px;
+  width: 100px;
+}
+
+.games li {
+  height: 95px;
+  padding-top: 15px;
+}
+
+ 

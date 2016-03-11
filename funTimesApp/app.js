@@ -11,6 +11,10 @@ var funtimesapp = angular.module('funTimesApp', ['ngRoute'])
             templateUrl: 'partials/about.html',
             controller: 'aboutFunTimes'
           })
+          .when('/games', {
+            templateUrl: 'partials/games.html',
+            controller: 'allGamesCtrl'
+          })
           .when('/games/:gameId', {
             templateUrl: 'partials/game-reviews.html',
             controller: 'GameReviewCtrl'
@@ -35,6 +39,14 @@ var funtimesapp = angular.module('funTimesApp', ['ngRoute'])
              $scope.games = GameService.getGames($routeParams.game)
       }])
 */
+      funtimesapp.controller('allGamesCtrl', ['$scope', 'GameService',
+      function($scope, GameService) {
+         GameService.getAllGames().success(function(data) {
+               $scope.games = data
+             })
+         $scope.orderProp = 'age';
+      }])
+
       funtimesapp.controller('GameReviewCtrl', 
          ['$scope', '$location', '$routeParams', 'GameService', 
          function($scope, $location, $routeParams, GameService) {
@@ -71,6 +83,9 @@ var funtimesapp = angular.module('funTimesApp', ['ngRoute'])
                 }, 
                getGame : function(id) {  // NEW
                     return $http.get('games/' + id + '.json')
+                },
+                getAllGames : function() {
+                    return $http.get('games/allGames.json')            
                 }
             }
             return api

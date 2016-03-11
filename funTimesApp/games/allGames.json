@@ -1,0 +1,70 @@
+[ 
+    {
+        "age": 0, 
+        "id": "call-of-duty", 
+        "imageUrl": "http://placehold.it/320x150", 
+        "name": "Call of Duty", 
+        "snippet": "The latest installment to the Call of Duty franchise....",
+        "rating": 5,
+        "reviews": 15,
+        "price": 25.99,
+        "comments": [ 
+                     {
+                         "body": ". . . . my comment . . .",
+                         "author": "jbloggs", 
+                         "upvotes": 2 
+                     }
+                     ]
+    }, 
+    {
+        "age": 1, 
+        "id": "fifa", 
+        "imageUrl": "http://placehold.it/320x150", 
+        "name": "FIFA", 
+        "snippet": "The latest installment to the Call of Duty franchise....",
+        "rating": 4,
+        "reviews": 10,
+        "price": 35.87,
+        "comments": [ 
+                     {
+                         "body": ". . . . my comment . . .",
+                         "author": "jbloggs", 
+                         "upvotes": 2 
+                     }
+                     ]
+    },
+    {
+        "age": 1, 
+        "id": "fifa", 
+        "imageUrl": "http://placehold.it/320x150", 
+        "name": "FIFA", 
+        "snippet": "The latest installment to the Call of Duty franchise....",
+        "rating": 4,
+        "reviews": 10,
+        "price": 35.87,
+        "comments": [ 
+                     {
+                         "body": ". . . . my comment . . .",
+                         "author": "jbloggs", 
+                         "upvotes": 2 
+                     }
+                     ]
+    },
+        {
+        "age": 1, 
+        "id": "black-ops", 
+        "imageUrl": "http://placehold.it/320x150", 
+        "name": "Call of Duty Black Ops", 
+        "snippet": "The latest installment to the Call of Duty franchise....",
+        "rating": 4,
+        "reviews": 10,
+        "price": 35.87,
+        "comments": [ 
+                     {
+                         "body": ". . . . my comment . . .",
+                         "author": "jbloggs", 
+                         "upvotes": 2 
+                     }
+                     ]
+    }
+]
