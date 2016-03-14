@@ -49,12 +49,20 @@ body {
     color: #333;
 }
 
+footer {
+    margin: 50px 0;
+}
+
 .glyphicon-thumbs-up { 
     cursor:pointer 
 }
 
 .games {
       list-style: none;
+}
+
+.glyphicon-glyphicon-euro" { 
+    font-style: normal;
 }
 /*
 .thumb {
@@ -91,18 +99,7 @@ footer {
     top: 0;
     color: #cccccc;
 }
-.btn-success {
-    background-color: #2ecc71;
-    border-color: #27ae60;
-}
-.btn {
-    border: none;
-    padding: 6px 12px;
-    border-bottom: 4px solid;
-    -webkit-transition: border-color 0.1s ease-in-out 0s,background-color 0.1s ease-in-out 0s;
-    transition: border-color 0.1s ease-in-out 0s,background-color 0.1s ease-in-out 0s;
-    outline: none;
-}
+
 .widget-todo .name {
     float: left;
 }
@@ -129,6 +126,7 @@ footer {
 }
 .widget-products li .product>.price {
     display: block;
+    font-weight:bold;
     text-decoration: none;
     width: 80%;
     float: left;
@@ -136,6 +134,7 @@ footer {
 .widget-products li .product>.name {
     display: block;
     font-weight: 600;
+    font-size: large;
     padding-bottom: 7px;
 }
 .widget-products li .product {
@@ -147,21 +146,12 @@ footer {
     display: block;
     float: left;
     text-align: center;
-    width: 70px;
-    height: 68px;
+    width: 80px;
+    height: 80px;
     overflow: hidden;
     margin-top: 7px;
 }
-.widget-products li>a {
-    height: 88px;
-    display: block;
-    width: 100%;
-    color: #344644;
-    padding: 3px 10px;
-    position: relative;
-    -webkit-transition: border-color 0.1s ease-in-out 0s,background-color 0.1s ease-in-out 0s;
-    transition: border-color 0.1s ease-in-out 0s,background-color 0.1s ease-in-out 0s;
-}
+
 .widget-products li {
     border-bottom: 1px solid #ebebeb;
 }
@@ -175,23 +165,8 @@ footer {
     padding: 15px 0;
     height: 96px;
 }
-.label {
-    border-radius: 3px;
-    font-weight: 600;
-}
-.widget-users li>.details>.time {
-    color: #3498db;
-    padding-bottom: 7px;
-}
-.widget-users li>.details>.name>a {
-    color: #344644;
-}
-.widget-users li>.details>.name {
-    font-weight: 600;
-}
-.widget-users li>.details {
-    margin-left: 60px;
-}
+
+
 .widget-users li>.img {
     float: left;
     margin-top: 8px;
@@ -200,17 +175,12 @@ footer {
     overflow: hidden;
     border-radius: 50%;
 }
-.widget-users {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
 .tabs-wrapper.tabs-no-header .tab-content {
     padding: 0 20px 20px;
 }
 .nav-tabs>li>a {
     border-radius: 0;
-    font-weight: 300;
+    font-weight: 400;
     outline: none;
     color: #555;
     margin-right: 3px;

@@ -1,4 +1,5 @@
 var funtimesapp = angular.module('funTimesApp', ['ngRoute']) 
+//var modalApp = angular.module('ui.bootstrap.demo', ['ngAnimate', 'ui.bootstrap']);
 
     funtimesapp.config(['$routeProvider',
       function($routeProvider) {
@@ -16,6 +17,10 @@ var funtimesapp = angular.module('funTimesApp', ['ngRoute'])
             controller: 'allGamesCtrl'
           })
           .when('/games/:gameId', {
+            templateUrl: 'partials/game-details.html',
+            controller: 'gameDetailsCtrl'
+          })
+          .when('/games/:gameId/reviews', {
             templateUrl: 'partials/game-reviews.html',
             controller: 'GameReviewCtrl'
           })
@@ -45,6 +50,19 @@ var funtimesapp = angular.module('funTimesApp', ['ngRoute'])
                $scope.games = data
              })
          $scope.orderProp = 'age';
+      }])
+
+
+      funtimesapp.controller('gameDetailsCtrl', 
+         ['$scope', '$location', '$routeParams', 'GameService', 
+         function($scope, $location, $routeParams, GameService) {
+             GameService.getGame($routeParams.gameId)
+                .success(function(data) {
+                   $scope.game = data
+                   })
+                .error(function(err) {
+                    $location.path('./games') 
+                  })
       }])
 
       funtimesapp.controller('GameReviewCtrl', 
@@ -91,3 +109,4 @@ var funtimesapp = angular.module('funTimesApp', ['ngRoute'])
             return api
         }])
 
+     //angular.module('ui.bootstrap.demo', ['ngAnimate', 'ui.bootstrap']);
