@@ -7,8 +7,13 @@
       Sort by:
       <select ng-model="orderProp">
         <option value="name">Alphabetical</option>
-        <option value="age">Newest</option>
+        <option value="releaseDate">Newest</option>
+        <option value="releaseDate">Oldest</option>
       </select>
+      <button ng-click="order('name')">Name</button>
+         <span class="sortorder" ng-show="predicate === 'name'" ng-class="{reverse:reverse}"></span>
+      <button ng-click="order('releaseDate')">{{buttonText}}</button>
+         <span class="sortorder" ng-show="predicate === 'releaseDate'" ng-class="{reverse:reverse}"></span>
     </div>
 </div>
 
@@ -16,13 +21,13 @@
 
 
       <ul class="widget-products">
-                  <li ng-repeat="game in games | filter:{name: query } | orderBy:orderProp">
+                  <li ng-repeat="game in games | filter:{name: query } | orderBy:predicate:reverse">
                      <span class="img">
                      <img class="img-thumbnail" ng-src="{{game.imageUrl}}" alt="">
                      </span>
                      <span class="product clearfix">
                      <span class="name">
-                     <a href="">
+                     <a href="#/games/{{game.id}}">
                      {{game.name}}
                      </a>
                      </span>

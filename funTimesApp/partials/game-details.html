@@ -2,50 +2,68 @@
 
 <div class="col-md-9">
  <div class="row">
-  <h2>Dynamic Pills</h2>
+ <div class="col-md-5">
+  <img ng-src="{{img}}" class="game">
+ </div>
+ <div class="col-md-6">
+  <h2>{{game.name}}</h2>
+        <div class="ratings">
+            <!--<p class="pull-right">{{game.reviews}} reviews</p>-->
+            
+            <h4>
+                <span class="glyphicon glyphicon-star"></span>
+                <span class="glyphicon glyphicon-star"></span>
+                <span class="glyphicon glyphicon-star"></span>
+                <span class="glyphicon glyphicon-star"></span>
+                <span class="glyphicon glyphicon-star"></span>
+            
+            <a href="#/games/{{game.id}}/reviews">{{game.comments.length}} reviews</a></h4>
+        </div>
+  <h3><span class="glyphicon glyphicon-eur"></span> {{game.price}}</h3>
+
+</div>
+  </div>
+  <div class="row">
+  <br>
   <ul class="nav nav-pills">
-    <li class="active"><a data-toggle="pill" data-target="#home">Home</a></li>
-    <li><a data-toggle="pill" data-target="#menu1">Menu 1</a></li>
-    <li><a data-toggle="pill" data-target="#menu2">Menu 2</a></li>
-    <li><a data-toggle="pill" data-target="#menu3">Menu 3</a></li>
+    <li class="active"><a data-toggle="pill" data-target="#home">Description</a></li>
+    <li><a data-toggle="pill" data-target="#menu1">Product Details</a></li>
+    <li><a data-toggle="pill" data-target="#menu2">Trailer</a></li>
   </ul>
- 
-  
   <div class="tab-content">
     <div id="home" class="tab-pane fade in active">
-      <h3>HOME</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+      <h3></h3>
+      <p>{{game.description}}</p>
     </div>
     <div id="menu1" class="tab-pane fade">
-    <div class="row">
-       <div class="col-sm-6 col-md-4 col-lg-2">
-          <span>Availability and Networks</span>
-          <dl>
-            <dt>Availability</dt>
-            <dd ng-repeat="availability in phone.availability">{{availability}}</dd>
-          </dl>
+      <h3></h3>
+       <div class="col-md-8 col-md-offset-1">
+            <br>
+            <p><b>Certificate:</b> {{game.certified}}</p>
+            <p><b>Platform:</b> {{game.platform}}</p>
+            <p><b>Brand:</b> {{game.brand}}</p>
+            <p><b>Series:</b> {{game.series}}</p>
+            <p><b>Players:</b> {{game.players}}</p>
        </div>
-       <div class="col-sm-6 col-md-4 col-lg-2">
-          <span>Battery</span>
-          <dl>
-            <dt>Type</dt>
-            <dd>{{game.rating}}</dd>
-            <dt>Talk Time</dt>
-            <dd>{{game.price}}</dd>
-            <dt>Standby time (max)</dt>
-            <dd></dd>
-          </dl>
-       </div>
-      <h3>Menu 1</h3>
-      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
     </div>
+    <br>
+    <br>
     <div id="menu2" class="tab-pane fade">
-      <h3>Menu 2</h3>
-      <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
-    </div>
-    <div id="menu3" class="tab-pane fade">
-      <h3>Menu 3</h3>
-      <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+      <div class="embed-responsive embed-responsive-16by9">
+        <div ng-controller="YouTubeCtrl">
+
+          <youtube width="{{yt.width}}" height="{{yt.height}}" videoid="{{game.trailer}}"></youtube>  
+
+          <br />
+
+        </div>
+      </div>
+        <!--
+      <br>  
+      <div class="embed-responsive embed-responsive-16by9">
+        <iframe width="560" height="315" src="http://dai.ly/x2o37t1" frameborder="0" allowfullscreen></iframe>
+      </div>
+      -->
     </div>
   </div>
   </div>

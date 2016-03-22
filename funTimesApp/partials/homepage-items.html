@@ -33,13 +33,15 @@
 
                 </div>
                 <div class="row">
-                    <div ng-repeat="game in games | orderBy:orderProp">
+                    <h4>This years new Games:</h4>
+                    <br>
+                    <div ng-repeat="game in games | filter: greaterThan('releaseDate', '2016-01-01') | orderBy:orderProp">
                         <div class="col-sm-4 col-lg-4 col-md-4">
                             <div class="thumbnail">
-                                <img src="http://placehold.it/320x150" alt="">
+                                <img ng-src="{{game.homepageImage}}" alt="">
                                 <div class="caption">
                                     <h4 class="pull-right">{{game.price}}</h4>
-                                    <h4><a href="#">{{game.name}}</a>
+                                    <h4><a href="#/games/{{game.id}}">{{game.name}}</a>
                                     </h4>
                                     <p>{{game.snippet}}</p>
                                 </div>

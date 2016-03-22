@@ -1,0 +1,32 @@
+{
+    "age": 0, 
+    "id": "black-ops-3", 
+    "imageUrl": "img/games/black-ops-3.0.jpg", 
+    "images": [
+            "img/games/black-ops-3.0.jpg",
+            "img/games/black-ops-3.1.jpg"
+    ], 
+    "name": "Call of Duty: Black Ops 3", 
+    "description": "The Black Ops III campaign is designed for four-player online co-op and re-playability on the next-gen, with players encountering the epic cinematic moments Call of Duty® is known for in new open-area engagements designed to allow players to approach the game with a different strategy each time they play. Every player is completely customizable: from weapons and loadouts, to abilities and outfits, all with full progression systems and a personalized armory to show off accomplishments, providing a constantly-evolving campaign experience.",
+    "certified": "PEGI 18",
+    "platform": "Playstation 4, Xbox One",
+    "price": 54.99,
+	"brand": "Activision",
+	"rating": 4.5,
+	"series": "Call of Duty",
+    "trailer": "58Pspqx0XGs",
+    "players": 2,
+    "comments": [ 
+                 {
+                     "body": ". . . . my comment . . .",
+                     "author": "jbloggs", 
+                     "upvotes": 2 
+                 },
+                 {
+                     "body": ". . . . my 2nd comment . . .",
+                     "author": "seanieoc", 
+                     "upvotes": 2 
+                 }
+                 ]
+
+}

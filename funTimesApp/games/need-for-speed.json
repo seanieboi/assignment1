@@ -1,0 +1,28 @@
+{
+        "age": 0, 
+        "id": "need-for-speed", 
+        "imageUrl": "img/games/need-for-speed.0.jpg", 
+        "images": [
+            "img/games/need-for-speed.0.jpg"
+        ],
+        "name": "Need for Speed", 
+        "description": "Discover the nocturnal open world of urban car culture, driven by Five Ways to Play, in this thrilling reboot of Need for Speed™. Carve your own unique path, via multiple overlapping stories, gaining reputation on your journey to become the ultimate icon. Need for Speed delivers on what fans have been requesting and what the franchise stands for – deep customisation, an authentic open world filled with real world car culture, and a narrative that drives your game. Ventura Bay is your urban playground - from sweeping hillside roads overlooking the city, to the police infested urban districts with tight city corners - the city comes alive while others sleep. Home to five real world automotive icons, the heroes of today's car culture, they will inspire you, push you, and test you. Build your reputation and earn their respect on your journey to become the ultimate icon.",
+        "certified": "PEGI 12",
+        "platform": "Playstation 4, Xbox One",
+        "price": 70,
+	   "brand": "Electronic Arts",
+        "comments": [ 
+                     {
+                        "body": "not great",
+                         "author": "grumpy", 
+                         "upvotes": 0 
+                     }
+                     ],
+	"series": "Need for Speed",
+        "trailer": "vLQGXHy5m6Y",
+	"players": 4
+
+}		
+	
+
+	

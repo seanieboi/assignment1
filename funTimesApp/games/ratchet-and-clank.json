@@ -1,0 +1,39 @@
+{
+        "age": 0, 
+        "id": "ratchet-and-clank", 
+        "imageUrl": "img/games/ratchet-and-clank.0.jpg", 
+        "images": [
+            "img/games/ratchet-and-clank.0.jpg"
+        ],
+        "name": "Ratcket & Clank", 
+        "description": "Play the game, based on the movie, based on the game! Ratchet & Clank (PS4) is a new game based on elements from the original Ratchet & Clank (PS2). Developed alongside the major motion CG-animated picture coming to theatres in 2016, Ratchet & Clank (PS4) marks the PlayStation 4 debut of PlayStation’s greatest heroes. Join Ratchet, Clank, Captain Qwark and new friends as they battle to save the Solana Galaxy from the evil Chairman Drek.",
+        "certified": "PEGI 7",
+        "platform": "Playstation 4",
+        "price": 39.99,
+	"brand": "Sony",
+	"rating": 5,
+        "comments": [ 
+                     {
+                         "body": "not great",
+                         "author": "grumpy", 
+                         "upvotes": 0 
+                     },
+                     {
+                         "body": "great game",
+                         "author": "tester1", 
+                         "upvotes": 2 
+                     },
+                     {
+                         "body": "super excited for this",
+                         "author": "gamerguy", 
+                         "upvotes": 3 
+                     }
+                     ],
+	"series": "Ratchet & Clank",
+        "trailer": "iU3sU2WMcPM",
+	"players": 1
+
+}		
+	
+
+	

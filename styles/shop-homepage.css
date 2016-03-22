@@ -31,7 +31,8 @@ body {
 }
 
 .thumbnail img {
-    width: 100%;
+    max-width: 90%;
+    height: auto;
 }
 
 .ratings {
@@ -210,3 +211,37 @@ footer {
     -moz-border-radius: 3px;
     border-radius: 3px;
 }
+
+   /** Game Details Images **/
+    img.game {
+
+      padding: 1em;
+      height: 300px;
+      width: 270px;
+    }
+
+    ul.game-thumbs {
+      margin: 0;
+      list-style: none;
+    }
+
+    ul.game-thumbs li {
+      border: 1px solid black;
+      display: inline-block;
+      margin: 1em;
+      background-color: white;
+    }
+
+    ul.game-thumbs img {
+      height: 100px;
+      width: 100px;
+      padding: 1em;
+    }
+
+    /** Black Arrow on Sort page**/
+    .sortorder:after {
+      content: '\25b2';
+    }
+    .sortorder.reverse:after {
+      content: '\25bc';
+    }

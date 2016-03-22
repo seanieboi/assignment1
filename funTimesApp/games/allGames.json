@@ -1,70 +1,55 @@
 [ 
     {
-        "age": 0, 
-        "id": "call-of-duty", 
-        "imageUrl": "http://placehold.it/320x150", 
-        "name": "Call of Duty", 
-        "snippet": "The latest installment to the Call of Duty franchise....",
-        "rating": 5,
-        "reviews": 15,
-        "price": 25.99,
-        "comments": [ 
-                     {
-                         "body": ". . . . my comment . . .",
-                         "author": "jbloggs", 
-                         "upvotes": 2 
-                     }
-                     ]
+        "releaseDate": "2015-10-13", 
+        "id": "black-ops-3", 
+        "imageUrl": "http://www.therobotsvoice.com/wp-content/uploads/2015/10/cod_blackops3_reveal.jpg", 
+        "name": "CoD: Black Ops 3", 
+        "snippet": "The latest installment to the Call of Duty franchise.",
+        "rating": 2,
+        "reviews": 2,
+        "price": 25.99
     }, 
     {
-        "age": 1, 
-        "id": "fifa", 
+        "releaseDate": "2016-02-23", 
+        "id": "fifa-16", 
+        "homepageImage":"img/games/fifa-16-menu.jpg",
         "imageUrl": "http://placehold.it/320x150", 
         "name": "FIFA", 
-        "snippet": "The latest installment to the Call of Duty franchise....",
+        "snippet": "FIFA 16 innovates across the entire pitch to deliver a balanced, authentic, and exciting football experience that lets you play your way, and compete at a higher level.",
         "rating": 4,
-        "reviews": 10,
-        "price": 35.87,
-        "comments": [ 
-                     {
-                         "body": ". . . . my comment . . .",
-                         "author": "jbloggs", 
-                         "upvotes": 2 
-                     }
-                     ]
+        "reviews": 3,
+        "price": 64.99
     },
     {
-        "age": 1, 
-        "id": "fifa", 
-        "imageUrl": "http://placehold.it/320x150", 
-        "name": "FIFA", 
-        "snippet": "The latest installment to the Call of Duty franchise....",
-        "rating": 4,
-        "reviews": 10,
-        "price": 35.87,
-        "comments": [ 
-                     {
-                         "body": ". . . . my comment . . .",
-                         "author": "jbloggs", 
-                         "upvotes": 2 
-                     }
-                     ]
+        "releaseDate": "2016-05-18", 
+        "id": "doom", 
+        "homepageImage":"img/games/doom-menu.jpg",
+        "imageUrl": "img/games/doom.0.jpg", 
+        "name": "Doom", 
+        "snippet": "Developed by id software, the studio that pioneered the first-person shooter genre and created multiplayer Deathmatch.",
+        "rating": 5,
+        "reviews": 1,
+        "price": 74.99
     },
-        {
-        "age": 1, 
-        "id": "black-ops", 
-        "imageUrl": "http://www.therobotsvoice.com/wp-content/uploads/2015/10/cod_blackops3_reveal.jpg", 
-        "name": "Call of Duty Black Ops", 
-        "snippet": "The latest installment to the Call of Duty franchise....",
+    {
+        "releaseDate": "2016-03-12", 
+        "id": "ratchet-and-clank", 
+        "homepageImage":"img/games/ratchet-and-clank-menu.jpg",
+        "imageUrl": "img/games/ratchet-and-clank.0.jpg", 
+        "name": "Ratchet & Clank", 
+        "snippet": "Welcome back Ratchet & Clank.",
         "rating": 4,
-        "reviews": 10,
-        "price": 35.87,
-        "comments": [ 
-                     {
-                         "body": ". . . . my comment . . .",
-                         "author": "jbloggs", 
-                         "upvotes": 2 
-                     }
-                     ]
+        "reviews": 3,
+        "price": 39.99
+    },
+    {
+        "releaseDate": "2015-11-02", 
+        "id": "need-for-speed", 
+        "imageUrl": "img/games/need-for-speed.0.jpg", 
+        "name": "Need For Speed", 
+        "snippet": "Discover the nocturnal open world of urban car culture, driven by Five Ways to Play, in this thrilling reboot of Need for Speed™.",
+        "rating": 5,
+        "reviews": 1,
+        "price": 74.99
     }
 ]

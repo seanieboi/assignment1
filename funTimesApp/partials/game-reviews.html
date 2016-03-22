@@ -26,16 +26,23 @@
         </h3>
       </div>
 
-      <div ng-repeat="comment in game.comments | orderBy:'-upvotes'">
-        <span class="glyphicon glyphicon-thumbs-up"
-          ng-click="incrementUpvotes(comment)"></span>
-        {{comment.upvotes}} - by {{comment.author}}
-        <span style="font-size:20px; margin-left:10px;">
-          {{comment.body}}
-        </span>
-      </div>
+      <div class="well">
 
-      <form ng-submit="addComment()"
+        <div ng-repeat="comment in game.comments | orderBy:'-upvotes'">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <span class="glyphicon glyphicon-thumbs-up"
+                              ng-click="incrementUpvotes(comment)"></span>
+                              {{comment.upvotes}} - by {{comment.author}}
+                            <span class="pull-right">10 days ago</span>
+                            <br/>
+                            <p>{{comment.body}}</p>
+                        </div>
+                    </div>
+                    <hr>
+        </div>
+                    
+        <form ng-submit="addComment()"
         style="margin-top:30px;">
         <h3>Add a new comment</h3>
         <div class="form-group">
@@ -52,7 +59,25 @@
         </div>
         <button type="submit" class="btn btn-primary">Post</button>
       </form>
-</div>
+
+      <!--
+        <span class="glyphicon glyphicon-thumbs-up"
+          ng-click="incrementUpvotes(comment)"></span>
+        {{comment.upvotes}} - by {{comment.author}}
+        <span style="font-size:20px; margin-left:10px;">
+          {{comment.body}}
+        </span>
+      </div>
+
+
+
+-->
+
+
+                </div>
+
+
+                </div>
 <!--
     <div class="col-sm-6 col-md-4 col-lg-2">
            <span>Size and Weight</span>
