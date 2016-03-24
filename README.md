@@ -128,7 +128,7 @@ Contact us page uses contactUsCtrl, the route is /contact:
 + Yoeman - At begining I looked into Yoeman and its features which seemed very useful. I decided against using Yoeman as I felt I wouldn't have enough time to get up to speed with that and complete the assignment. 
 
 [image1]: ./model.png
-[image2]: ./gameJsonDate.png
+[image2]: ./gameJsonData.png
 [image3]: ./componentDesign.png
 [image4]: ./homepage.png
 [image5]: ./about.png
