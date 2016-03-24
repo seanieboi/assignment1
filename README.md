@@ -15,7 +15,7 @@ The purpose of this application is to demo Angulars core functions as part of a 
 + Contact Us if they find informatioon is not correct or a bug in the code.  
 
 
- . . . . . List of user features (excluding user registration and authentication) . . . . 
+###User Functions.
  
  + View product details for desired game along with game trailer 
  + Sort gammes alphabetically or by release date
@@ -25,6 +25,7 @@ The purpose of this application is to demo Angulars core functions as part of a 
  + Filtered games on the homepage to allow the user to see new releases
  + Carosal to show user special offers etc..
  + View App on Mobile Device
+ + Full validation on contact us form to help the user not make mistakes
 
 ###Installation requirements.
 
@@ -43,7 +44,6 @@ The purpose of this application is to demo Angulars core functions as part of a 
 + Click the link and click the link for funTimesApp
 + All required classes etc are in the package therefore no extra software etc is required to run the app. 
 feel free to explore app. 
-
 + The only environment set up nessacary is to have a http server running to view the app
 
 ###Data Model Design.
@@ -52,9 +52,13 @@ Diagram of app's data model (see example below) AND/OR a sample of the test data
 
 ![][image1]
 
+<br>
+
 Sample json data for a game:
 
 ![][image2]
+
+<br>
 
 Use meaningful sample data. Briefly explain any non-trivial issues.
 
@@ -66,26 +70,33 @@ A simple diagram showing the app's component design, in particular controllers a
 
 ###UI Design.
 
-. . . . . Screenshots of app's views (see example below) with appropriate captions (excluding user regeneration and login views) . . . . . . . 
-
 Homepage view uses gameListCtrl controller, route is /homepage:
 ![][image4]
+
+<br>
 
 About page uses aboutCtrl, route is /route:
 ![][image5]
 
+<br>
+
 Games page uses allGamesCtrl controller, route is /games:
 ![][image6]
+
+<br>
 
 Game details page uses unique id from games page, the controller is gameDetailsCtrl, route is /games/gamesId:
 ![][image7]
 
+<br>
+
 Reviews page uses unique id from game details page, the controller is gameReviewCtrl, route is /games/gameId/reviewsgamesId:
 ![][image8]
 
+<br>
+
 Contact us page uses contactUsCtrl, the route is /contact:
 ![][image9]
-
 
 ###Routing.
 
@@ -110,19 +121,15 @@ Contact us page uses contactUsCtrl, the route is /contact:
 + ajoslin.promise-tracker - This is a 3rd party javascript file that allows me to do dynamic form validation for my contact us form. 
 + Responsive Design - The app is optimised for mobile, tablet and desktop. Where needed I used the correct angular divs to make the likes of the videos responsive. 
 
-. . . . . Briefly explain any non-standard features, functional or non-functional (e.g. user registration, authentication) developed for the app . . . . . .  
-
 ###Independent learning.
 + Modals - I ran out of time before i had a chance to implement any modals (modals are pop up pages with information). I looked at implementing them as a single partial or embeded in another partial
 + Modules - At one stage I looked at trying to use 2 modules in the one page but Angular doesn't allow this, instead I figured out that I could call an extra js file when creating my module. 
 + Authentication - I spent a lot of time figuring out how to authenticate users and secure pages in the route so they could not be accessed when user wasn't logged in. 
 + Yoeman - At begining I looked into Yoeman and its features which seemed very useful. I decided against using Yoeman as I felt I wouldn't have enough time to get up to speed with that and complete the assignment. 
 
-. . . . . State the non-standard aspects of Angular (or other related technologies) that you researched and applied in this assignment . . . . .  
-
-[image1]: ./model.xml
+[image1]: ./model.png
 [image2]: ./gameJsonDate.png
-[image3]: ./componentDesign.xml
+[image3]: ./componentDesign.png
 [image4]: ./homepage.png
 [image5]: ./about.png
 [image6]: ./allGames.png
