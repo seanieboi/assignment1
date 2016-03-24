@@ -1,63 +1,64 @@
-    <!-- Page Content -->
-
-            <div class="col-md-9">
-
-                <div class="row carousel-holder">
-
-                    <div class="col-md-12">
-                        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-                            <ol class="carousel-indicators">
-                                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                                <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-                            </ol>
-                            <div class="carousel-inner">
-                                <div class="item active">
-                                    <img class="slide-image" src="http://placehold.it/800x300" alt="">
-                                </div>
-                                <div class="item">
-                                    <img class="slide-image" src="http://placehold.it/800x300" alt="">
-                                </div>
-                                <div class="item">
-                                    <img class="slide-image" src="http://placehold.it/800x300" alt="">
-                                </div>
-                            </div>
-                            <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
-                                <span class="glyphicon glyphicon-chevron-left"></span>
-                            </a>
-                            <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
-                                <span class="glyphicon glyphicon-chevron-right"></span>
-                            </a>
-                        </div>
+<div class="col-md-9">
+    <div class="row carousel-holder">  
+        <div class="col-md-12">
+            <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner">
+                    <div class="item active">
+                        <a href="#/games/fifa-16">
+                            <img class="slide-image" src="img/games/fifa-16-menu.jpg" alt="">
+                        </a>
                     </div>
-
-                </div>
-                <div class="row">
-                    <h4>This years new Games:</h4>
-                    <br>
-                    <div ng-repeat="game in games | filter: greaterThan('releaseDate', '2016-01-01') | orderBy:orderProp">
-                        <div class="col-sm-4 col-lg-4 col-md-4">
-                            <div class="thumbnail">
-                                <img ng-src="{{game.homepageImage}}" alt="">
-                                <div class="caption">
-                                    <h4 class="pull-right">{{game.price}}</h4>
-                                    <h4><a href="#/games/{{game.id}}">{{game.name}}</a>
-                                    </h4>
-                                    <p>{{game.snippet}}</p>
-                                </div>
-                                <div class="ratings">
-                                    <!--<p class="pull-right">{{game.reviews}} reviews</p>-->
-                                    <a href="#/games/{{game.id}}/reviews" class="pull-right">{{game.reviews}} reviews</a>
-                                    <p>
-                                        <span class="glyphicon glyphicon-star"></span>
-                                        <span class="glyphicon glyphicon-star"></span>
-                                        <span class="glyphicon glyphicon-star"></span>
-                                        <span class="glyphicon glyphicon-star"></span>
-                                        <span class="glyphicon glyphicon-star"></span>
-                                    </p>
-                                </div>
-                            </div>   
-                        </div>
+                    <div class="item">
+                        <a href="#/games/need-for-speed">
+                            <img class="slide-image" src="img/games/need-for-speed-menu-2.jpg" alt="">
+                        </a>
+                    </div>
+                    <div class="item">
+                        <a href="#/games/black-ops-3">
+                            <img class="slide-image" src="img/games/black-ops-3-menu.jpg" alt="">
+                        </a>
                     </div>
                 </div>
+                <span class="left carousel-control" data-target="#carousel-example-generic" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                </span>
+                <span class="right carousel-control" data-target="#carousel-example-generic" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right"></span>
+                </span>
             </div>
+        </div>
+    </div>
+    <div class="row">
+        <h4>This years new Games:</h4>
+        <br>
+        <div ng-repeat="game in games | filter: greaterThan('releaseDate', '2016-01-01') | orderBy:orderProp">
+            <div class="col-sm-4 col-lg-4 col-md-4">
+                <div class="thumbnail">
+                    <img ng-src="{{game.homepageImage}}" alt="">
+                    <div class="caption">
+                        <h4 class="pull-right">{{game.price}}</h4>
+                        <h4><a href="#/games/{{game.id}}">{{game.name}}</a>
+                        </h4>
+                        <p>{{game.snippet}}</p>
+                    </div>
+                    <div class="ratings">
+                        <!--<p class="pull-right">{{game.reviews}} reviews</p>-->
+                        <a href="#/games/{{game.id}}/reviews" class="pull-right">{{game.reviews}} reviews</a>
+                        <p>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                        </p>
+                    </div>
+                </div>   
+            </div>
+        </div>
+    </div>
+</div>

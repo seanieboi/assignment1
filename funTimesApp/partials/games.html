@@ -1,57 +1,35 @@
 
 <div class="col-sm-2 col-lg-8 col-md-8">
     <div class="well">
-      <!--Sidebar content-->
-
       Search: <input ng-model="query">
       Sort by:
-      <select ng-model="orderProp">
-        <option value="name">Alphabetical</option>
-        <option value="releaseDate">Newest</option>
-        <option value="releaseDate">Oldest</option>
-      </select>
       <button ng-click="order('name')">Name</button>
          <span class="sortorder" ng-show="predicate === 'name'" ng-class="{reverse:reverse}"></span>
       <button ng-click="order('releaseDate')">{{buttonText}}</button>
          <span class="sortorder" ng-show="predicate === 'releaseDate'" ng-class="{reverse:reverse}"></span>
     </div>
 </div>
-
-   <div class="col-sm-8 col-lg-8 col-md-8">
-
-
-      <ul class="widget-products">
-                  <li ng-repeat="game in games | filter:{name: query } | orderBy:predicate:reverse">
-                     <span class="img">
-                     <img class="img-thumbnail" ng-src="{{game.imageUrl}}" alt="">
-                     </span>
-                     <span class="product clearfix">
-                     <span class="name">
-                     <a href="#/games/{{game.id}}">
-                     {{game.name}}
-                     </a>
-                     </span>
-                     <span class="price">
-                     <span class="glyphicon glyphicon-euro"></span>
-                     {{game.price}}
-                     </span>
-                     <span class="warranty">
-                     {{game.snippet}}
-                     </span>
-                      <a href="#/games/{{game.id}}"  class="btn btn-primary">Read More</a>
-                     </span>
-                  </li>
-      </ul>
-  <!--
-     <ul  class="games">
-        <li ng-repeat="game in games | filter:{name: query } | orderBy:orderProp" class="thumbnail">
-           <a href="" class="thumb"><img ng-src="{{game.imageUrl}}"></a>
-           <a href="">{{game.name}}</a>
-           <p>{{game.snippet}}</p>
+<div class="col-sm-8 col-lg-8 col-md-8">
+    <ul class="widget-products">
+        <li ng-repeat="game in games | filter:{name: query } | orderBy:predicate:reverse">
+           <span class="img">
+           <img class="img-thumbnail" ng-src="{{game.homepageImage}}" alt="">
+           </span>
+           <span class="product clearfix">
+           <span class="name">
+           <a href="#/games/{{game.id}}">
+           {{game.name}}
+           </a>
+           </span>
+           <span class="price">
+           <span class="glyphicon glyphicon-euro"></span>
+           {{game.price}}
+           </span>
+           <span class="warranty">
+           {{game.snippet}}
+           </span>
+            <a href="#/games/{{game.id}}"  class="btn btn-primary">Read More</a>
+           </span>
         </li>
-      </ul>
-   -->   
-
-
-
-    </div>
+    </ul>  
+</div>

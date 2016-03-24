@@ -1,0 +1,27 @@
+<link href="../styles/contact-us.css" rel="stylesheet">
+<div class="col-md-9">
+	<h2>Create Account with funTimes</h2>
+
+	<form novalidate role="form">
+	<div class="form-group">
+	  <label for="username">User name:</label>
+	  <input type="text" ng-model="newUser.username" class="form-control" placeholder="Enter user name">
+	</div>
+	<div class="form-group">
+	  <label for="password">Password:</label>
+	  <input type="password" ng-model="newUser.password" class="form-control" placeholder="Enter password">
+	</div>
+	<div class="form-group">
+	  <label for="address">Address:</label>
+	  <input type="address" ng-model="newUser.address" class="form-control" placeholder="Enter address">
+	</div>
+	<div class="form-group">
+	  <label for="mobileNumber">Mobile Number:</label>
+	  <input type="mobileNumber" ng-model="newUser.mobileNumber" class="form-control" placeholder="Enter mobile number">
+	</div>
+
+	  <!--<input type="submit" class="btn btn-primary"  value="Submit Form">-->
+	  <button class="btn btn-success" ng-click="register()">Submit</button>
+	  <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+	</form>
+</div>

@@ -2,6 +2,7 @@
     {
         "releaseDate": "2015-10-13", 
         "id": "black-ops-3", 
+        "homepageImage":"img/games/black-ops-3-menu.jpg",
         "imageUrl": "http://www.therobotsvoice.com/wp-content/uploads/2015/10/cod_blackops3_reveal.jpg", 
         "name": "CoD: Black Ops 3", 
         "snippet": "The latest installment to the Call of Duty franchise.",
@@ -10,7 +11,7 @@
         "price": 25.99
     }, 
     {
-        "releaseDate": "2016-02-23", 
+        "releaseDate": "2015-09-23", 
         "id": "fifa-16", 
         "homepageImage":"img/games/fifa-16-menu.jpg",
         "imageUrl": "http://placehold.it/320x150", 
@@ -18,7 +19,7 @@
         "snippet": "FIFA 16 innovates across the entire pitch to deliver a balanced, authentic, and exciting football experience that lets you play your way, and compete at a higher level.",
         "rating": 4,
         "reviews": 3,
-        "price": 64.99
+        "price": 34.99
     },
     {
         "releaseDate": "2016-05-18", 
@@ -43,8 +44,9 @@
         "price": 39.99
     },
     {
-        "releaseDate": "2015-11-02", 
+        "releaseDate": "2016-01-02", 
         "id": "need-for-speed", 
+        "homepageImage":"img/games/need-for-speed-menu.jpg",
         "imageUrl": "img/games/need-for-speed.0.jpg", 
         "name": "Need For Speed", 
         "snippet": "Discover the nocturnal open world of urban car culture, driven by Five Ways to Play, in this thrilling reboot of Need for Speed™.",

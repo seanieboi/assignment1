@@ -6,11 +6,11 @@ var funtimesapp = angular.module('funTimesApp', ['ngRoute', 'ajoslin.promise-tra
         $routeProvider
           .when('/homepage', {
             templateUrl: 'partials/homepage-items.html',
-            controller: 'GameListController'
+            controller: 'gameListCtrl'
           })
           .when('/about', {
             templateUrl: 'partials/about.html',
-            controller: 'aboutFunTimes'
+            controller: 'aboutFunTimesCtrl'
           })
           .when('/games', {
             templateUrl: 'partials/games.html',
@@ -22,11 +22,11 @@ var funtimesapp = angular.module('funTimesApp', ['ngRoute', 'ajoslin.promise-tra
           })
           .when('/games/:gameId/reviews', {
             templateUrl: 'partials/game-reviews.html',
-            controller: 'GameReviewCtrl'
+            controller: 'gameReviewCtrl'
           })
           .when('/contact', {
             templateUrl: 'partials/contact-us.html',
-            controller: 'ContactUsCtrl'
+            controller: 'contactUsCtrl'
           })
           .when('/login', {
             templateUrl: 'partials/login.html',
@@ -34,22 +34,26 @@ var funtimesapp = angular.module('funTimesApp', ['ngRoute', 'ajoslin.promise-tra
           })
           .when('/myaccount', {
               resolve: {
-                user: function(authentication, $location){
-                  if(!authentication.isAuthenticated){ 
+                user: function(AuthenticationService, $location){
+                  if(!AuthenticationService.isAuthenticated){ 
                     $location.url("/login");
                   }
-                  return authentication.user;
+                  return AuthenticationService.user;
                 }
               },
-              templateUrl: 'partials/home.html',
-              controller: 'HomeCtrl'
+              templateUrl: 'partials/my-account.html',
+              controller: 'myAcountCtrl'
+          })
+          .when('/register', {
+            templateUrl: 'partials/register.html',
+            controller: 'registerCtrl'
           })
           .otherwise({
             redirectTo: '/homepage'
           })
       }])
 
-     funtimesapp.controller('GameListController', ['$scope', 'GameService',
+     funtimesapp.controller('gameListCtrl', ['$scope', 'GameService',
           function($scope, GameService) {
              GameService.getAllGames().success(function(data) {
                    $scope.games = data
@@ -60,14 +64,7 @@ var funtimesapp = angular.module('funTimesApp', ['ngRoute', 'ajoslin.promise-tra
                     if (releaseDate[prop] > val) return true;
               }}
      }])
-/*
-     funtimesapp.controller('GameReviewCtrl', ['$scope',
-       'GameService', 
-       '$routeParams',
-       function ($scope,GameService ,$routeParams) {
-             $scope.games = GameService.getGames($routeParams.game)
-      }])
-*/
+
       funtimesapp.controller('allGamesCtrl', ['$scope', 'GameService',
       function($scope, GameService) {
          GameService.getAllGames().success(function(data) {
@@ -102,7 +99,7 @@ var funtimesapp = angular.module('funTimesApp', ['ngRoute', 'ajoslin.promise-tra
                }
       }])
 
-      funtimesapp.controller('GameReviewCtrl', 
+      funtimesapp.controller('gameReviewCtrl', 
          ['$scope', '$location', '$routeParams', 'GameService', 
          function($scope, $location, $routeParams, GameService) {
              GameService.getGame($routeParams.gameId)
@@ -127,106 +124,115 @@ var funtimesapp = angular.module('funTimesApp', ['ngRoute', 'ajoslin.promise-tra
           	}
 
       }])
-/*
-      funtimesapp.controller('ContactUsCtrl', ['$scope', function($scope) {
-    }]) 
-*/
-      funtimesapp.controller('aboutFunTimes', ['$scope', function($scope) {
+
+    funtimesapp.controller('aboutFunTimesCtrl', ['$scope', function($scope) {
     }]) 
 
-    funtimesapp.controller('LoginCtrl', function($scope, $http, $location, authentication, UserService) {
+    funtimesapp.controller('LoginCtrl', function($scope, $http, $location, AuthenticationService, UserService) {
       var users = UserService.getUsers()
-                
-      //$scope.contacts = UserService.getUsers()   // CHANGE
-      
-      $scope.login = function() {
-
-        for(var i=0;i<users.length;i++){
-          if ($scope.username === users[i].username && $scope.password === users[i].password) {
-            console.log('successful')
-            authentication.isAuthenticated = true;
-            authentication.user = { name: $scope.username };
-            $location.url("/myaccount");
-          } else {
-            $scope.loginError = "Invalid username/password combination";
-            console.log('Login failed..');
-          };
-        }
-      };
+        $scope.login = function() {
+          for(var i=0;i<users.length;i++){
+            if ($scope.username === users[i].username && $scope.password === users[i].password) {
+              console.log('successful')
+              AuthenticationService.isAuthenticated = true;
+              AuthenticationService.user = { name: users[i].username,
+                                      address: users[i].address,
+                                      mobileNumber: users[i].mobileNumber };
+              $location.url("/myaccount");
+            } else {
+              $scope.loginError = "Sorry. Invalid username/password combination";
+              console.log('Login failed..');
+            };
+          }
+        };
+        $scope.cancel = function(){
+          $location.url('/homepage');
+        };
     })
 
 
-    funtimesapp.controller('HomeCtrl', function($scope, user) {
+    funtimesapp.controller('myAcountCtrl', function($scope, user) {
       $scope.user = user.name;
-  
+      $scope.address = user.address;
+      $scope.mobileNumber = user.mobileNumber;
     });
 
+    funtimesapp.controller('contactUsCtrl', function ($scope, $http, $log, promiseTracker, $timeout) {
+        $scope.subjectListOptions = {
+          'bug': 'Report a Bug',
+          'account': 'Account Problems',
+          'other': 'Other'
+        };
 
-    funtimesapp.controller('ContactUsCtrl', function ($scope, $http, $log, promiseTracker, $timeout) {
-                $scope.subjectListOptions = {
-                  'bug': 'Report a Bug',
-                  'account': 'Account Problems',
-                  'other': 'Other'
-                };
+        // Inititate the promise tracker to track form submissions.
+        $scope.progress = promiseTracker();
 
-                // Inititate the promise tracker to track form submissions.
-                $scope.progress = promiseTracker();
+        // Form submit handler.
+        $scope.submit = function(form) {
+          // Trigger validation flag.
+          $scope.submitted = true;
 
-                // Form submit handler.
-                $scope.submit = function(form) {
-                  // Trigger validation flag.
-                  $scope.submitted = true;
+          // If form is invalid, return and let AngularJS show validation errors.
+          if (form.$invalid) {
+            return;
+          }
 
-                  // If form is invalid, return and let AngularJS show validation errors.
-                  if (form.$invalid) {
-                    return;
-                  }
+          // Default values for the request.
+          var config = {
+            params : {
+              'callback' : 'JSON_CALLBACK',
+              'name' : $scope.name,
+              'email' : $scope.email,
+              'subjectList' : $scope.subjectList,
+              'url' : $scope.url,
+              'comments' : $scope.comments
+            },
+          };
 
-                  // Default values for the request.
-                  var config = {
-                    params : {
-                      'callback' : 'JSON_CALLBACK',
-                      'name' : $scope.name,
-                      'email' : $scope.email,
-                      'subjectList' : $scope.subjectList,
-                      'url' : $scope.url,
-                      'comments' : $scope.comments
-                    },
-                  };
+          // Perform JSONP request.
+          var $promise = $http.jsonp('../support/response.json', config)
+            .success(function(data, status, headers, config) {
+              if (data.status == 'OK') {
+                $scope.name = null;
+                $scope.email = null;
+                $scope.subjectList = null;
+                $scope.url = null;
+                $scope.comments = null;
+                $scope.messages = 'Your form has been sent!';
+                $scope.submitted = false;
+              } else {
+                $scope.messages = 'Oops, we received your request, but there was an error processing it.';
+                $log.error(data);
+              }
+            })
+            .error(function(data, status, headers, config) {
+              $scope.progress = data;
+              $scope.messages = 'There was a network error. Try again later.';
+              $log.error(data);
+            })
+            .finally(function() {
+              // Hide status messages after three seconds.
+              $timeout(function() {
+                $scope.messages = null;
+              }, 3000);
+            });
 
-                  // Perform JSONP request.
-                  var $promise = $http.jsonp('../support/response.json', config)
-                    .success(function(data, status, headers, config) {
-                      if (data.status == 'OK') {
-                        $scope.name = null;
-                        $scope.email = null;
-                        $scope.subjectList = null;
-                        $scope.url = null;
-                        $scope.comments = null;
-                        $scope.messages = 'Your form has been sent!';
-                        $scope.submitted = false;
-                      } else {
-                        $scope.messages = 'Oops, we received your request, but there was an error processing it.';
-                        $log.error(data);
-                      }
-                    })
-                    .error(function(data, status, headers, config) {
-                      $scope.progress = data;
-                      $scope.messages = 'There was a network error. Try again later.';
-                      $log.error(data);
-                    })
-                    .finally(function() {
-                      // Hide status messages after three seconds.
-                      $timeout(function() {
-                        $scope.messages = null;
-                      }, 3000);
-                    });
-
-                  // Track the request and show its progress to the user.
-                  $scope.progress.addPromise($promise);
-                };
+          // Track the request and show its progress to the user.
+          $scope.progress.addPromise($promise);
+        };
     }); 
 
+    funtimesapp.controller('registerCtrl', function ($scope,$location,UserService) {
+    $scope.users = UserService.getUsers();
+    $scope.register = function () {
+        UserService.register($scope.newUser)
+        $scope.newUser = {}
+        $location.path('/login')
+    }
+    $scope.cancel = function(){
+        $location.url('/homepage');
+      };
+    })
 
      funtimesapp.factory('GameService', ['$http' , function($http){
             var api = {
@@ -240,7 +246,7 @@ var funtimesapp = angular.module('funTimesApp', ['ngRoute', 'ajoslin.promise-tra
             return api
         }])
 
-     funtimesapp.factory('authentication', function() {
+     funtimesapp.factory('AuthenticationService', function() {
         return {
           isAuthenticated: false,
           user: null
@@ -248,97 +254,103 @@ var funtimesapp = angular.module('funTimesApp', ['ngRoute', 'ajoslin.promise-tra
       });
 
      funtimesapp.factory('UserService', [function(){
-         var users = [ 
+        var users = [ 
                 { 
                     username : 'seanieoc',
                     password : 'pass1234',
+                    address : 'Wexford',
+                    mobileNumber : '0861234567', 
                     id: 1
                   },
                 { 
                     username : 'admin',
                     password : 'password',
+                    address : 'Waterford',
+                    mobileNumber : '0861234567', 
                     id: 2
                   },
                 ]
+
          var api = {
              getUsers : function() {
                 return users
-             }
+             },
+              register : function(user) {
+               users.push({ username: user.username, password: user.password, 
+                    address: user.address, mobileNumber: user.mobileNumber })
+            }
           }
           return api
-        }])
-
-     //angular.module('ui.bootstrap.demo', ['ngAnimate', 'ui.bootstrap']);
-
+      }])
 
      //youtTube Player
      funtimesapp.directive('youtube', function($window) {
-  return {
-    restrict: "E",
+      return {
+        restrict: "E",
 
-    scope: {
-      height: "@",
-      width: "@",
-      videoid: "@"
-    },
+        scope: {
+          height: "@",
+          width: "@",
+          videoid: "@"
+        },
 
-    template: '<div></div>',
+        template: '<div></div>',
 
-    link: function(scope, element) {
-      var tag = document.createElement('script');
-      tag.src = "https://www.youtube.com/iframe_api";
-      var firstScriptTag = document.getElementsByTagName('script')[0];
-      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+        link: function(scope, element) {
+          var tag = document.createElement('script');
+          tag.src = "https://www.youtube.com/iframe_api";
+          var firstScriptTag = document.getElementsByTagName('script')[0];
+          firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-      var player;
+          var player;
 
-      $window.onYouTubeIframeAPIReady = function() {
+          $window.onYouTubeIframeAPIReady = function() {
 
-        player = new YT.Player(element.children()[0], {
-          playerVars: {
-            autoplay: 0,
-            html5: 1,
-            theme: "light",
-            modesbranding: 0,
-            color: "white",
-            iv_load_policy: 3,
-            showinfo: 1,
-            controls: 1
-          },
+            player = new YT.Player(element.children()[0], {
+              playerVars: {
+                autoplay: 0,
+                html5: 1,
+                theme: "light",
+                modesbranding: 0,
+                color: "white",
+                iv_load_policy: 3,
+                showinfo: 1,
+                controls: 1
+              },
 
-          height: scope.height,
-          width: scope.width,
-          videoId: scope.videoid, 
-        });
-      }
+              height: scope.height,
+              width: scope.width,
+              videoId: scope.videoid, 
+            });
+          }
 
-      scope.$watch('videoid', function(newValue, oldValue) {
-        if (newValue == oldValue) {
-          return;
-        }
+          scope.$watch('videoid', function(newValue, oldValue) {
+            if (newValue == oldValue) {
+              return;
+            }
 
-        player.cueVideoById(scope.videoid);
+            player.cueVideoById(scope.videoid);
 
-      }); 
+          }); 
 
-      scope.$watch('height + width', function(newValue, oldValue) {
-        if (newValue == oldValue) {
-          return;
-        }
+          scope.$watch('height + width', function(newValue, oldValue) {
+            if (newValue == oldValue) {
+              return;
+            }
 
-        player.setSize(scope.width, scope.height);
+            player.setSize(scope.width, scope.height);
 
-      });
-    }  
-  };
-});
+          });
+        }  
+      };
+    });
 
-       funtimesapp.controller("YouTubeCtrl", function($scope) {
-    //initial settings
-    $scope.yt = {
-      width: 560, 
-      height: 315, 
-      videoid: "mlaxs1Ur-NU",
-    };
+    funtimesapp.controller("YouTubeCtrl", function($scope) {
+      //initial settings
+      $scope.yt = {
+        width: 560, 
+        height: 315, 
+        videoid: "mlaxs1Ur-NU",
+      };
 
-  });
+    });
