@@ -131,7 +131,7 @@ Contact us page uses contactUsCtrl, the route is /contact:
 [image2]: ./gameJsonData.png
 [image3]: ./componentDesign.png
 [image4]: ./homepage.png
-[image5]: ./about.png
+[image5]: ./support/about.png
 [image6]: ./allGames.png
 [image7]: ./gameDetails.png
 [image8]: ./reviews.png
