@@ -127,12 +127,12 @@ Contact us page uses contactUsCtrl, the route is /contact:
 + Authentication - I spent a lot of time figuring out how to authenticate users and secure pages in the route so they could not be accessed when user wasn't logged in. 
 + Yoeman - At begining I looked into Yoeman and its features which seemed very useful. I decided against using Yoeman as I felt I wouldn't have enough time to get up to speed with that and complete the assignment. 
 
-[image1]: ./model.png
-[image2]: ./gameJsonData.png
-[image3]: ./componentDesign.png
-[image4]: ./homepage.png
+[image1]: ./support/model.png
+[image2]: ./support/gameJsonData.png
+[image3]: ./support/componentDesign.png
+[image4]: ./support/homepage.png
 [image5]: ./support/about.png
-[image6]: ./allGames.png
-[image7]: ./gameDetails.png
-[image8]: ./reviews.png
-[image9]: ./contactUs.png
+[image6]: ./support/allGames.png
+[image7]: ./support/gameDetails.png
+[image8]: ./support/reviews.png
+[image9]: ./support/contactUs.png
