@@ -29,10 +29,11 @@ The purpose of this application is to demo Angulars core functions as part of a 
 
 ###Installation requirements.
 
-+ AngularJS 1.5.2
++ Node JS (only needed for http-server)
++ AngularJS 1.5.2 
 + Bootstrap 3.3.6
-+ Sublime Text
-+ Beyond Compare
++ Sublime Text (for editing)
++ Beyond Compare (for editing)
 
 ###How to run App.
 
@@ -60,7 +61,12 @@ Sample json data for a game:
 
 <br>
 
-Use meaningful sample data. Briefly explain any non-trivial issues.
+###Non-Trivial Issues.
+
++ Re-Sizing images - I found it hard to get th eimages to fit the carosal when they are all different sizes, to fix this I had to chnage the css to auto for width and 300px for length. 
++ Displaying chnages - at first I didn't realise that I neede to clear the cache for the updates to display. 
++ Commas after fuction -  In the factory I didn't add a comma after the first function in the factory and got loads of controller issues. 
++ Displaying YouTube videos - see below. 
 
 ###App Design.
 
